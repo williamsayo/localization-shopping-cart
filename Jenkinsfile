@@ -22,7 +22,7 @@ pipeline {
 
         stage("check docker"){
             steps {
-                bat "docker -version"
+                bat "docker --version"
             }
         }
 

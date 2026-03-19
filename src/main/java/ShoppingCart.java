@@ -1,5 +1,5 @@
 public class ShoppingCart {
-    double cartTotalPrice = 0;
+    double cartTotalPrice = 0.0;
 
     public double calculateItemCost(int quantity,double price){
         return quantity*price;

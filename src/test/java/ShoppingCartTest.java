@@ -12,7 +12,10 @@ class ShoppingCartTest {
     @Test
     void testAddToCart() {
         shoppingCart.addToCart(60);
-        assertEquals(60.0,shoppingCart.getCartTotalPrice());
+        shoppingCart.addToCart(20);
+        assertEquals(80.0,shoppingCart.getCartTotalPrice());
+        shoppingCart.addToCart(200);
+        assertEquals(280.0,shoppingCart.getCartTotalPrice());
     }
 
 }
