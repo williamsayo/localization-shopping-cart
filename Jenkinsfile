@@ -21,49 +21,49 @@ pipeline {
         }
 
         stage("check docker"){
-            step{
+            steps {
                 bat "docker -version"
             }
         }
 
         stage("checkout"){
-            step{
+            steps {
                 git branch: "${BRANCH}", url:"${GITHUB_REPOSITORY}"
             }
         }
 
         stage("test"){
-            step{
+            steps {
                 bat "mvn clean test"
             }
         }
 
         stage("coverage report"){
-            step{
+            steps {
                 bat "mvn jacoco:report"
             }
         }
 
         stage("publish test report"){
-            step{
+            steps {
                 junit '**/target/surefire-reports/*.xml'
             }
         }
 
         stage("publish coverage report"){
-            step{
+            steps {
                 jacoco()
             }
         }
 
         stage("build docker image"){
-            step{
+            steps {
                 bat "docker build -t ${DOCKERHUB_REPOSITORY}:${DOCKER_IMAGE_TAG}"
             }
         }
 
         stage("Push Docker Image to Docker Hub"){
-            step{
+            steps {
                 script{
                     with docker.registry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS_ID){
                         docker.image("${DOCKERHUB_REPOSITORY}:${DOCKER_IMAGE_TAG}").push()
