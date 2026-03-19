@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven ""${params.MAVEN}""
+        maven "${params.MAVEN}"
     }
 
     environment {
