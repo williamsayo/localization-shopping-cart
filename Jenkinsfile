@@ -7,7 +7,7 @@ pipeline {
     environment {
         GITHUB_REPOSITORY= "${params.GITHUB_REPOSITORY}"
         DOCKERHUB_CREDENTIALS="${params.DOCKER_CRED}"
-        DOCKERHUB_REPOSITORY="williamsayo44/localization"
+        DOCKERHUB_REPOSITORY="williamsayo/localization"
         DOCKER_IMAGE_TAG="v1"
     }
 
