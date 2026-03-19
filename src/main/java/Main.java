@@ -36,20 +36,15 @@ public class Main {
 
     private static void selectLanguage() {
         System.out.println("Select a language: ");
-        System.out.printf("1. %s 2. %s 3. %s\n", "English", "Finish", "Swedish");
+        System.out.printf("1. %s 2. %s 3. %s 4. %s\n", "English", "Finish", "Swedish","Japanese");
         System.out.print("> ");
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1:
-                locale = new Locale("en", "US");
-                break;
-            case 2:
-                locale = new Locale("fi", "FI");
-                break;
-            case 3:
-                locale = new Locale("sv", "SE");
-                break;
+            case 1 -> locale = new Locale("en", "US");
+            case 2 -> locale = new Locale("fi", "FI");
+            case 3 -> locale = new Locale("sv", "SE");
+            case 4 -> locale = new Locale("ja", "JP");
         }
     }
 
