@@ -58,7 +58,7 @@ pipeline {
 
         stage("build docker image"){
             steps {
-                bat "docker build -t ${DOCKERHUB_REPOSITORY}:${DOCKER_IMAGE_TAG}"
+                bat "docker build -t ${DOCKERHUB_REPOSITORY}:${DOCKER_IMAGE_TAG} ."
             }
         }
 
