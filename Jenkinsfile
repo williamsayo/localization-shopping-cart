@@ -65,11 +65,23 @@ pipeline {
         stage("Push Docker Image to Docker Hub"){
             steps {
                 script{
-                    with docker.registry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS_ID){
+                    with docker.registry('https://index.docker.io/v1/', env.DOCKERHUB_CREDENTIALS_ID){
                         docker.image("${DOCKERHUB_REPOSITORY}:${DOCKER_IMAGE_TAG}").push()
                     }
                 }
             }
+        }
+    }
+
+    post {
+        always {
+            bat "docker logout"
+        }
+        success {
+            echo "Image published to Docker Hub successfully."
+        }
+        failure {
+            echo 'Pipeline failed. Check the logs above for details.'
         }
     }
 }
