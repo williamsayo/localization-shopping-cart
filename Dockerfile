@@ -10,4 +10,4 @@ COPY . /app/
 
 RUN mvn package
 
-CMD ["java", "-jar", "target/tripcalaculator.jar"]
+CMD ["java", "-jar", "target/main.jar"]
